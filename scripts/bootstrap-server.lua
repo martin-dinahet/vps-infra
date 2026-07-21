@@ -9,7 +9,6 @@ local directories = {
   paths.infra,
   paths.stacks,
   paths.stacks .. "/caddy",
-  paths.stacks .. "/opensprint",
   paths.stacks .. "/postgres",
   paths.data,
   paths.data .. "/caddy",

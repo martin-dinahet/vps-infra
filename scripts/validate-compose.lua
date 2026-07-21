@@ -13,13 +13,6 @@ fs.write_file(temp_secrets_dir .. "/postgres.env", table.concat({
   "",
 }, "\n"))
 
-fs.write_file(temp_secrets_dir .. "/opensprint.env", table.concat({
-  "NODE_ENV=production",
-  "PORT=3000",
-  "DATABASE_URL=postgresql://opensprint_user:dummy@postgres:5432/opensprint_db",
-  "",
-}, "\n"))
-
 local find_handle = io.popen("find stacks -mindepth 2 -maxdepth 2 -name compose.yml | sort")
 if not find_handle then
   os.exit(1)
