@@ -1,16 +1,22 @@
 #!/usr/bin/env lua
 
-local infra = dofile("scripts/helpers/init.lua")
-local command = infra.command
-local docker = infra.docker
-local fs = infra.fs
+local command = dofile("scripts/helpers/command.lua")
+local docker = dofile("scripts/helpers/docker.lua")
+local fs = dofile("scripts/helpers/fs.lua")
 
 local temp_secrets_dir = fs.temp_dir()
 
-fs.write(temp_secrets_dir .. "/postgres.env", table.concat({
+fs.write_file(temp_secrets_dir .. "/postgres.env", table.concat({
   "POSTGRES_USER=postgres",
   "POSTGRES_PASSWORD=dummy",
   "POSTGRES_DB=postgres",
+  "",
+}, "\n"))
+
+fs.write_file(temp_secrets_dir .. "/opensprint.env", table.concat({
+  "NODE_ENV=production",
+  "PORT=3000",
+  "DATABASE_URL=postgresql://opensprint_user:dummy@postgres:5432/opensprint_db",
   "",
 }, "\n"))
 

@@ -1,5 +1,4 @@
 return {
-  opt = "/opt",
   infra = "/opt/infra",
   stacks = "/opt/stacks",
   data = "/opt/data",

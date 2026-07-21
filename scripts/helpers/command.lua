@@ -1,25 +1,25 @@
-local command = {}
+local M = {}
 
-function command.run(value, options)
+function M.run(command, options)
   options = options or {}
 
   if options.print ~= false then
-    print(value)
+    print(command)
   end
 
-  local ok = os.execute(value)
+  local ok = os.execute(command)
   if ok ~= true and ok ~= 0 then
     os.exit(1)
   end
 end
 
-function command.exists(value)
-  local ok = os.execute(value .. " >/dev/null 2>&1")
+function M.exists(command)
+  local ok = os.execute(command .. " >/dev/null 2>&1")
   return ok == true or ok == 0
 end
 
-function command.capture(value)
-  local handle = io.popen(value)
+function M.capture(command)
+  local handle = io.popen(command)
   if not handle then
     os.exit(1)
   end
@@ -30,5 +30,5 @@ function command.capture(value)
   return output
 end
 
-return command
+return M
 

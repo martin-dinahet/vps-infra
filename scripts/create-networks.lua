@@ -1,7 +1,6 @@
 #!/usr/bin/env lua
 
-local infra = dofile("scripts/helpers/init.lua")
-local docker = infra.docker
+local docker = dofile("scripts/helpers/docker.lua")
 
 docker.ensure_network("frontend")
 docker.ensure_network("backend")

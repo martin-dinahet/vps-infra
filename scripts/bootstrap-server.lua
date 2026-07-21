@@ -1,15 +1,15 @@
 #!/usr/bin/env lua
 
-local infra = dofile("scripts/helpers/init.lua")
-local command = infra.command
-local fs = infra.fs
-local paths = infra.paths
+local command = dofile("scripts/helpers/command.lua")
+local fs = dofile("scripts/helpers/fs.lua")
+local paths = dofile("scripts/helpers/paths.lua")
 local user = os.getenv("USER") or "root"
 
 local directories = {
   paths.infra,
   paths.stacks,
   paths.stacks .. "/caddy",
+  paths.stacks .. "/opensprint",
   paths.stacks .. "/postgres",
   paths.data,
   paths.data .. "/caddy",

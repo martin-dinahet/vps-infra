@@ -1,8 +1,7 @@
 #!/usr/bin/env lua
 
-local infra = dofile("scripts/helpers/init.lua")
-local command = infra.command
-local paths = infra.paths
+local command = dofile("scripts/helpers/command.lua")
+local paths = dofile("scripts/helpers/paths.lua")
 local stack_name = arg[1]
 
 if not stack_name then
